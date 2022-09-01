@@ -16,7 +16,7 @@ const saveUser = (req, res) => {
           if (error) {
             res.status(500).json({ message: "internal error" });
           } else {
-            res.status(200).json({ message: "ok" });
+            res.status(200).json({ message: "user created" });
           }
         });
       }
