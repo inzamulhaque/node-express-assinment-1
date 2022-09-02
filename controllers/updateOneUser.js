@@ -3,7 +3,7 @@ const fs = require("fs");
 const updateOneUser = (req, res) => {
   const { id } = req.params;
   const newData = req.body;
-  const { error, user } = req;
+  const { error, user } = req || {};
   if (error) {
     res.status(500).json({ error: "internal server error" });
   } else {
