@@ -58,7 +58,7 @@ router.patch("/update/:id", validateUserId, updateOneUser);
  * @api {delete} /user/delete/:id delete one user
  * @apiDescription delete one user
  *
- * @apiSuccess delete one user
+ * @apiSuccess delete one user.
  */
 router.delete("/delete/:id", validateUserId, deleteUser);
 
