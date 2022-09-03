@@ -11,7 +11,7 @@ const validateUserId = require("../middleware/validateUserId");
 const router = express.Router();
 
 /**
- * @api {get} /random Get Random User
+ * @api {get} /user/random Get Random User
  * @apiDescription Get Random User
  *
  * @apiSuccess {Object[]} random User
@@ -19,7 +19,7 @@ const router = express.Router();
 router.get("/random", randomUser);
 
 /**
- * @api {get} /all All User
+ * @api {get} /user/all All User
  * @apiDescription Get all User
  *
  * @apiParam  {Number{1-}}         [page=1]     List page
@@ -30,7 +30,7 @@ router.get("/random", randomUser);
 router.get("/all", allUser);
 
 /**
- * @api {post} /save Create a new user
+ * @api {post} /user/save Create a new user
  * @apiDescription Create new user
  *
  * @apiSuccess new user created.
@@ -38,7 +38,7 @@ router.get("/all", allUser);
 router.post("/save", validateUser, uniqueIdValidation, saveUser);
 
 /**
- * @api {patch} /update/bulk-update update many user info
+ * @api {patch} /user/update/bulk-update update many user info
  * @apiDescription update many user info
  *
  * @apiSuccess update many user info.
@@ -46,7 +46,7 @@ router.post("/save", validateUser, uniqueIdValidation, saveUser);
 router.patch("/update/bulk-update", bodyValidation, bulkUpdate);
 
 /**
- * @api {patch} /update/:id update one user info
+ * @api {patch} /user/update/:id update one user info
  * @apiDescription update one user info
  *
  * @apiSuccess update one user info.
