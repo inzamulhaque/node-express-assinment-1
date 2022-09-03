@@ -15,7 +15,7 @@ const allUser = (req, res) => {
         page = 1;
         limit = myData.length;
       }
-      const allUser = myData.slice(page - 1, limit * page);
+      const allUser = myData.slice((page - 1) * limit, limit * page);
       if (allUser.length !== 0) {
         res.status(200).send(allUser);
       } else {
