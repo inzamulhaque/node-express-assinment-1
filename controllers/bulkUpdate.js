@@ -34,11 +34,13 @@ const bulkUpdate = (req, res) => {
               }
             );
           } else {
-            throw new Error("Didn't find the user!");
-            return;
+            res.status(400).json({ error: "please provide info" });
           }
           console.log(allUser);
         }
+      }
+      if (error) {
+        res.status(400).json({ error: "please provide info" });
       }
     });
   }
