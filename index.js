@@ -10,6 +10,14 @@ app.use(express.json());
 
 app.use("/user", userRoute);
 
+app.get("/", (req, res) => {
+  res.status(200).send("Hello");
+});
+
+app.all("*", (req, res) => {
+  res.status(404).send("Route not found");
+});
+
 app.listen(port, () => {
   console.log(`http://localhost:${port}/`);
 });
