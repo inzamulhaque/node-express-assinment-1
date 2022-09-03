@@ -3,7 +3,7 @@ const fs = require("fs");
 const bodyValidation = (req, res, next) => {
   const userData = req.body;
 
-  if (userData.length === 0) {
+  if (userData.length === 0 || !userData) {
     req.error = "error";
     console.log("error");
     res.status(400).json({ error: "please provide user info" });
