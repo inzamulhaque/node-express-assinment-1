@@ -1,6 +1,7 @@
 const express = require("express");
 const allUser = require("../controllers/allUser");
 const bulkUpdate = require("../controllers/bulkUpdate");
+const deleteUser = require("../controllers/deleteUser");
 const randomUser = require("../controllers/randomUser");
 const saveUser = require("../controllers/saveUser");
 const updateOneUser = require("../controllers/updateOneUser");
@@ -52,5 +53,13 @@ router.patch("/update/bulk-update", bodyValidation, bulkUpdate);
  * @apiSuccess update one user info.
  */
 router.patch("/update/:id", validateUserId, updateOneUser);
+
+/**
+ * @api {delete} /user/delete/:id delete one user
+ * @apiDescription delete one user
+ *
+ * @apiSuccess delete one user
+ */
+router.delete("/delete/:id", validateUserId, deleteUser);
 
 module.exports = router;
