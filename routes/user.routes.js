@@ -1,8 +1,10 @@
 const express = require("express");
 const allUser = require("../controllers/allUser");
+const bulkUpdate = require("../controllers/bulkUpdate");
 const randomUser = require("../controllers/randomUser");
 const saveUser = require("../controllers/saveUser");
 const updateOneUser = require("../controllers/updateOneUser");
+const bodyValidation = require("../middleware/bodyValidation");
 const uniqueIdValidation = require("../middleware/uniqueIdValidation");
 const validateUser = require("../middleware/validateUser");
 const validateUserId = require("../middleware/validateUserId");
@@ -34,6 +36,14 @@ router.get("/all", allUser);
  * @apiSuccess new user created.
  */
 router.post("/save", validateUser, uniqueIdValidation, saveUser);
+
+/**
+ * @api {patch} /update/bulk-update update many user info
+ * @apiDescription update many user info
+ *
+ * @apiSuccess update many user info.
+ */
+router.patch("/update/bulk-update", bodyValidation, bulkUpdate);
 
 /**
  * @api {patch} /update/:id update one user info
